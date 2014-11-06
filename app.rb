@@ -19,3 +19,8 @@ get '/' do
   @logs = Log.all(:order => [ :id.desc ], :limit => 20)
   erb :index
 end
+
+post '/' do
+@post = Log.create(params[:log])
+redirect '/'
+end
