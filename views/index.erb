@@ -3,14 +3,18 @@
 	<select name="log[name]" id="name">
 		<option value="Mathieu">Mathieu</option>
 		<option value="Édouard">Édouard</option>
+		<option value="Invité">Invité</option>
 	</select>
 	<input type="text" name="log[body]" placeholder="Votre contenu">
 	<input type="submit">
 </form>
 
-
 <h2>Vos logs</h2>
 <% @logs.each do |log| %>
-  <h4><%= log.name %></h4>
-  <p><%= log.body %></p>
+
+  <div class="<%= "panel" + " " + color(log.name) %>" >
+  <div class="panel-heading"><h4><%= log.name %></h4></div>
+  <div class="panel-body"><%= log.body %></div>
+  </div>
+
 <% end %>

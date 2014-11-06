@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
+require "better_errors"
 # créer la base de donnée app.db
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/app.db")
 
@@ -24,3 +25,14 @@ post '/' do
 @post = Log.create(params[:log])
 redirect '/'
 end
+
+helpers do
+	def color(name)
+		if name == 'Mathieu'
+			'panel-danger'
+		else
+			'panel-primary'
+		end
+	end
+end
+
