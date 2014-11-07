@@ -9,3 +9,9 @@ h2 {
 form {
 	text-align: center;
 }
+
+.panel-body {
+	display: block;
+    width: 150px;
+    float: left;
+}

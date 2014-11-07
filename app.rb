@@ -26,6 +26,8 @@ post '/' do
 redirect '/'
 end
 
+#Log.update(:body => "new text here")
+
 helpers do
 	def color(name)
 		if name == 'Mathieu'
