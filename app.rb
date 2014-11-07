@@ -29,9 +29,11 @@ end
 helpers do
 	def color(name)
 		if name == 'Mathieu'
-			'panel-danger'
-		else
 			'panel-primary'
+		elsif name == 'Édouard'
+			'panel-success'
+		else			
+			'panel-danger'
 		end
 	end
 end
