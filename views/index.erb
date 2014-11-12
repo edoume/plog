@@ -14,7 +14,24 @@
 
   <div class="<%= "panel" + " " + color(log.name) %>" >
   <div class="panel-heading"><h4><%= log.name %></h4></div>
-  <div class="panel-body"><%= log.body %><a class="btn btn-default btn-sm" href="#">Édit</a></div>
-  </div>
+  <div class="panel-body">
+  	<div class="row">
+  	  <div class="col-xs-9 col-xs-offset-1">
+	 	 <%= log.body %>
+	  </div>
+
+	  <div class="col-xs-1 col-sxs-offset-1">
+	  	<div class="btn-group-vertical btn-group-sm">
+	  	
+	  		<button type="button" class="btn btn-success"><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></button>
+
+	  		<button type="button" class="btn btn-danger"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></button>
+
+	  	</div><!--/btn-group-->
+	  </div><!--/col-xs-2-->
+
+  	</div><!--/row-->
+  </div><!--/panel-body-->
+  </div><!--/panel-->
 
 <% end %>
