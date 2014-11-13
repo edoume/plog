@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="plogcss.css">
-    <title>pLog</title>
-  </head>
-<body>
-<br>
-    <div class="container">
-    	<%= yield %>
-    </div>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="plogcss.css">
+		<!-- JavaScript pour utilisation du modal Bootstrap -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+		<title>pLog</title>
+    </head>
+	<body>
+		<br>
+		    <div class="container">
+		    	<%= yield %>
+		    </div>
+	</body>
 </html>

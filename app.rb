@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'pry'
 require 'sinatra'
 require 'data_mapper'
 require "better_errors"
@@ -35,9 +36,9 @@ post '/delete' do
 end
 
 #edite un log dans la BDD
-post '/edit' do
+post '/edit/:id' do
 	@edit = Log.get(params[:id])
-	@edit.update(:body => "Tous les mêmes")
+	@edit.update(body: params[:log][:body])
 	redirect '/'
 end
 
