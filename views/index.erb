@@ -1,21 +1,37 @@
-<form action="/" method="post">
-<label for="name">Choisir l'utilisateur:</label>
-	<select name="log[name]" id="name">
-		<option value="Mathieu">Mathieu</option>
-		<option value="Édouard">Édouard</option>
-		<option value="Invité">Invité</option>
-	</select>
-	<input type="text" name="log[body]" placeholder="Votre Log"/>
-	<input type="submit"/>
-</form>
+<div class="row">
+	<div class="col-md-6">
+		<form action="/" method="post">
+		<label for="name">Choisir l'utilisateur:</label>
+			<select name="log[name]" id="name">
+				<option value="Mathieu">Mathieu</option>
+				<option value="Édouard">Édouard</option>
+				<option value="Invité">Invité</option>
+			</select>
+		</div><!-- col-md-6 -->
+		<div class="col-md-4 com-md-offset-1">
+			<div class="input-group">
+		      <input type="text" class="form-control" name="log[body]" placeholder="Votre Log">
+		      <span class="input-group-btn">
+		        <button class="btn btn-primary" type="submit">Envoyer</button>
+		      </span>
+		    </div><!-- /input-group --> 
+		</form>
+	</div><!-- col-md-4 -->
+</div><!-- row -->
 
-<h2>Vos logs</h2>
+
+
+<hr>
+
+
+
+<h2>Vos logs <span class="badge">??</span></h2>
 <% @logs.each do |log| %>
-	<div class="<%= "panel" + " " + color(log.name) %>" >
-	<div class="panel-heading"><h4><%= log.name %></h4></div>
+<div class="<%= "panel" + " " + color(log.name) %>" >
+<div class="panel-heading"><h4><%= log.name %></h4></div>
 	<div class="panel-body">
   		<div class="row">
-	 		<%= log.body %>
+			<%= log.body %>
 				<div class="modal fade" id="<%= log.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	 				<div class="modal-dialog">
 	   					<div class="modal-content">
@@ -25,38 +41,38 @@
 	       							<span class="sr-only">Close</span>
 	       						</button>
 	       							<h4 class="modal-title" id="myModalLabel">Édition de votre log</h4>
-	    					</div>
-	     						<div class="modal-body">
+	    					</div><!-- modal-header -->
+	     					<div class="modal-body">
 	        						<form action="/edit/<%=log.id %>" method="post">
 	           							<textarea id="body" name="log[body]" class="form-control" row="3"><%= log.body %></textarea>
-	     						</div>
-	     							<div class="modal-footer">
+	     					</div><!-- modal-body -->
+	     					<div class="modal-footer">
 	       								<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 	       								<button type="submit" class="btn btn-primary">Éditer</button>
-	     							</div>
+	     					</div><!-- modal-footer -->
 									</form>
-	   							</div>
-	 						</div>
-						</div>	
+	   					</div><!-- modal-content -->
+	 				</div><!-- modal-dialog -->
+				</div><!-- modal -->
   		</div><!--/row-->
 	</div><!--/panel-body-->
 	<div class="panel-footer">
   		<div class="row">
-  			<div class="col-md-8">date</div>
-  			<div class="col-md-2">
-  				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#<%= log.id %>">
+  			<div class="col-xs-6">date</div>
+  			<div class="col-xs-1">
+  				<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#<%= log.id %>">
 		  			<span class="glyphicon glyphicon-pencil"></span>
 				</button>
-			</div>
-			<div class="col-md-2">
+			</div><!-- col-xs-2 -->
+			<div class="col-xs-1 col-xs-offset-1">
 		  		<form action="/delete" method="post">
 		  			<input type="hidden" name="id" value="<%= log.id %>"/>
-		  				<button type="submit" class="btn btn-danger">
+		  				<button type="submit" class="btn btn-xs btn-danger">
 		  					<span class="glyphicon glyphicon-remove"></span>
 		  				</button>
 		  		</form>
-			</div>
-  		</div>
+			</div><!-- col-xs-2 -->
+  		</div><!-- row -->
   	</div><!-- /panel footer -->
-	</div><!--/panel-->
+</div><!--/panel-->
 <% end %>
