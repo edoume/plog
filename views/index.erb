@@ -7,14 +7,14 @@
 				<option value="Édouard">Édouard</option>
 				<option value="Invité">Invité</option>
 			</select>
-		</div><!-- col-md-6 -->
-		<div class="col-md-4 com-md-offset-1">
-			<div class="input-group">
-		      <input type="text" class="form-control" name="log[body]" placeholder="Votre Log">
-		      <span class="input-group-btn">
+	</div><!-- col-md-6 -->
+	<div class="col-md-4 com-md-offset-1">
+		<div class="input-group">
+			<input type="text" class="form-control" name="log[body]" placeholder="Votre Log">
+		    	<span class="input-group-btn">
 		        <button class="btn btn-primary" type="submit">Envoyer</button>
-		      </span>
-		    </div><!-- /input-group --> 
+		      	</span>
+		</div><!-- /input-group --> 
 		</form>
 	</div><!-- col-md-4 -->
 </div><!-- row -->
@@ -58,7 +58,7 @@
 	</div><!--/panel-body-->
 	<div class="panel-footer">
   		<div class="row">
-  			<div class="col-xs-6">date</div>
+  			<div class="col-xs-6"><%= log.created_at.strftime ('%Y-%m-%d %H:%M') %></div>
   			<div class="col-xs-1">
   				<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#<%= log.id %>">
 		  			<span class="glyphicon glyphicon-pencil"></span>

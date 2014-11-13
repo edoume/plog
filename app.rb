@@ -3,6 +3,7 @@ require 'pry'
 require 'sinatra'
 require 'data_mapper'
 require "better_errors"
+require 'dm-timestamps'
 # créer la base de donnée app.db
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/app.db")
 
@@ -12,6 +13,7 @@ class Log
   property :id, Serial
   property :name, String
   property :body, Text
+  property :created_at, DateTime
 end
 
 #mets à jour la BDD
