@@ -13,27 +13,37 @@ class Log
   property :body, Text
 end
 
-#finalise la table de la BDD
-DataMapper.finalize
-
 #mets à jour la BDD
 Log.auto_upgrade!
 
 #affiche les logs dans index
 get '/' do
-  @logs = Log.all(:order => [ :id.desc ], :limit => 20)
-  erb :index
+ 	@logs = Log.all(:order => [ :id.desc ], :limit => 20)
+ 	erb :index
 end
 
 #créé dans la BDD via la methode post
 post '/' do
-@post = Log.create(params[:log])
-redirect '/'
+	@post = Log.create(params[:log])
+	redirect '/'
 end
 
-#Log.update(:body => "new text here")
-#Log.delete(:id??)
+#supprimer un log de la BDD
+post '/delete' do
+	Log.get(params[:id]).destroy
+	redirect '/'  
+end
 
+#edite un log dans la BDD
+post '/edit' do
+	@edit = Log.get(params[:id])
+	@edit.update(:body => "Tous les mêmes")
+	redirect '/'
+end
+
+#<script type="text/javascript">
+#	prompt("Changer votre Log ici:");
+#</script>
 
 helpers do
 	def color(name)
@@ -46,3 +56,6 @@ helpers do
 		end
 	end
 end
+
+#finalise la table de la BDD
+DataMapper.finalize
