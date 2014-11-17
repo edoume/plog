@@ -2,8 +2,17 @@ require 'rubygems'
 require 'pry'
 require 'sinatra'
 require 'data_mapper'
-require "better_errors"
 require 'dm-timestamps'
+require 'rdiscount'
+require "better_errors"
+require "binding_of_caller"
+
+
+configure :development do
+use BetterErrors::Middleware
+BetterErrors.application_root = __dir__
+end
+
 # créer la base de donnée app.db
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/app.db")
 
@@ -14,6 +23,7 @@ class Log
   property :name, String
   property :body, Text
   property :created_at, DateTime
+  property :updated_at, DateTime
 end
 
 #mets à jour la BDD
@@ -44,9 +54,8 @@ post '/edit/:id' do
 	redirect '/'
 end
 
-#<script type="text/javascript">
-#	prompt("Changer votre Log ici:");
-#</script>
+#Interpreteur markdown
+#à venir
 
 helpers do
 	def color(name)

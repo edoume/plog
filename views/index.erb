@@ -58,7 +58,8 @@
 	</div><!--/panel-body-->
 	<div class="panel-footer">
   		<div class="row">
-  			<div class="col-xs-6"><%= log.created_at.strftime ('%Y-%m-%d %H:%M') %></div>
+  			<div class="col-xs-3"><%= "Créé le :" + " " + log.created_at.strftime('%Y-%m-%d à %H:%M') %></div>
+  			<div class="col-xs-3"><%= "Édité le" + " " +log.updated_at.strftime('%Y-%m-%d à %H:%M') if log.created_at != log.updated_at %></div>
   			<div class="col-xs-1">
   				<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#<%= log.id %>">
 		  			<span class="glyphicon glyphicon-pencil"></span>

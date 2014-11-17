@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.6)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -12,6 +13,10 @@ GEM
     coderay (1.1.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
+    dm-timestamps (1.2.0)
+      dm-core (~> 1.2.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     ffi (1.9.6)
@@ -31,6 +36,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rdiscount (2.1.7.1)
     rerun (0.10.0)
       listen (~> 2.7, >= 2.7.3)
     sinatra (1.4.5)
@@ -52,7 +58,9 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  dm-timestamps
   pry
+  rdiscount
   rerun
   sinatra
   thin
